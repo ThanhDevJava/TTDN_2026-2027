@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/librarydb?serverTimezone=Asia/Ho_Chi_Minh}
+    username: ${DB_USER:library}
+    password: ${DB_PASSWORD}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        default_batch_fetch_size: 32
+server:
+  servlet:
+    session:
+      timeout: 30m
+      cookie:
+        http-only: true
+        same-site: lax
+library:
+  loan-days: ${LOAN_DAYS:14}
+  max-books: ${MAX_BOOKS:5}
+  daily-fine: ${DAILY_FINE:5000}
+  zone: Asia/Ho_Chi_Minh
